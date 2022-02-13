@@ -121,6 +121,43 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &41510262 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4020430921677001645, guid: 5528b22a65ab4d24ea236aecd5674f60,
+    type: 3}
+  m_PrefabInstance: {fileID: 4125573609937672611}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &41510264 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4125573609937672609, guid: 5528b22a65ab4d24ea236aecd5674f60,
+    type: 3}
+  m_PrefabInstance: {fileID: 4125573609937672611}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &41510266 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 4125573609937672607, guid: 5528b22a65ab4d24ea236aecd5674f60,
+    type: 3}
+  m_PrefabInstance: {fileID: 4125573609937672611}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &41510269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41510262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 140f0ebc63339f3418eecab5149d5b2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player_animator: {fileID: 41510264}
+  player_Rb: {fileID: 41510266}
+  life_one: {fileID: 481792157}
+  life_two: {fileID: 1607099090}
+  life_three: {fileID: 2117885381}
+  jumpspeed: 10
+  onGround: 0
 --- !u!1001 &52692307
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3373,10 +3410,21 @@ PrefabInstance:
       objectReference: {fileID: 1607099090}
     - target: {fileID: 4125573609937672606, guid: 5528b22a65ab4d24ea236aecd5674f60,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4125573609937672606, guid: 5528b22a65ab4d24ea236aecd5674f60,
+        type: 3}
       propertyPath: life_three
       value: 
       objectReference: {fileID: 2117885381}
-    m_RemovedComponents: []
+    - target: {fileID: 4125573609937672607, guid: 5528b22a65ab4d24ea236aecd5674f60,
+        type: 3}
+      propertyPath: m_Mass
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4125573609937672606, guid: 5528b22a65ab4d24ea236aecd5674f60, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5528b22a65ab4d24ea236aecd5674f60, type: 3}
 --- !u!1001 &6069149801224577757
 PrefabInstance:

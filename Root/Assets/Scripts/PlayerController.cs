@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
@@ -32,27 +30,19 @@ public class PlayerController : MonoBehaviour
     //bool crouch;
     [SerializeField]
     bool onGround;
+    private int extraJump = 0;
 
-    void Awake()
+    /*   void Awake()
+       {
+           player_Rb = gameObject.GetComponent<Rigidbody2D>();
+          // onGround = true;
+       }*/
+
+    private void Awake()
     {
-        onGround = true;
+        player_Rb = gameObject.GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxis("Jump");
-       
-        Player_Movement(horizontal);
-        Player_Run(horizontal);
-        Player_Jump(vertical);
-
-        /*if (Input.GetKeyDown(KeyCode.LeftControl))
-        {
-            Player_Crouch();
-        }  */    
-    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -61,6 +51,46 @@ public class PlayerController : MonoBehaviour
             onGround = true;
         }
     }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Platform"))
+        {
+            onGround = false;
+        }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        //float vertical = Input.GetAxis("Jump");
+       
+        Player_Movement(horizontal);
+        Player_Run(horizontal);
+        //Player_Jump(vertical);
+
+        if (onGround == true)
+        {
+            extraJump = 1;
+        }
+
+        bool vertical = Input.GetKeyDown(KeyCode.UpArrow);
+        if ((vertical) && (extraJump==0) && (onGround==true))
+        {
+            Player_Jump();
+        }
+        else if ((vertical) && (extraJump > 0))
+        {
+            PlayerDoubleJump();
+        }
+
+        /*if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            Player_Crouch();
+        }  */
+    }
+
 
     /*void Player_Crouch()
     {
@@ -75,21 +105,29 @@ public class PlayerController : MonoBehaviour
             player_animator.SetBool("Crouch", false);
         }
     }*/
-
-    void Player_Jump(float vertical)
+    void Player_Jump()
     {
-        if(vertical > 0 && onGround == true)
-        {
-            player_animator.SetBool("Jump", true);
-            player_Rb.AddForce(new Vector2(0.0f, 5.0f) * jumpspeed, ForceMode2D.Impulse);
-            //player_jump.Play();
-            onGround = false;
-        }
-        else if(vertical == 0 && onGround == false)
-        {
-            player_animator.SetBool("Jump", false);
-        }
+        /*if((vertical) && (onGround == true))
+        {*/
+        //player_animator.SetBool("Jump", true);
+        player_Rb.AddForce(new Vector2(0.0f, 10f), ForceMode2D.Impulse);
+        //player_jump.Play();
+        //extraJump = extraJump - 1;
+        //onGround = false;
+        /*}*/
+        /*  else if((vertical) && onGround == false)
+          {
+              //player_animator.SetBool("Jump", false);
+          }*/
     }
+    private void PlayerDoubleJump()
+    {
+       // player_animator.SetBool("Jump", true);
+        player_Rb.AddForce(new Vector2(0.0f, 10f), ForceMode2D.Impulse);
+       // onGround = false;
+        extraJump = extraJump - 1;
+    }
+
 
     void Player_Movement(float horizontal)
     {
