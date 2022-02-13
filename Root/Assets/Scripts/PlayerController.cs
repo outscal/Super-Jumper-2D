@@ -32,12 +32,6 @@ public class PlayerController : MonoBehaviour
     bool onGround;
     private int extraJump = 0;
 
-    /*   void Awake()
-       {
-           player_Rb = gameObject.GetComponent<Rigidbody2D>();
-          // onGround = true;
-       }*/
-
     private void Awake()
     {
         player_Rb = gameObject.GetComponent<Rigidbody2D>();
