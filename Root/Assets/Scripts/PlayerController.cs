@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
+using System.Collections;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -25,16 +27,23 @@ public class PlayerController : MonoBehaviour
 
     float runspeed = 3.0f;
     int player_health = 3;
-    [SerializeField]
-    float jumpspeed = 10.0f;
+   // [SerializeField]
+    //float jumpspeed = 10.0f;
     //bool crouch;
     [SerializeField]
     bool onGround;
     private int extraJump = 0;
+    private bool isPickUp;
+    private float currentTime;
+    private bool finishTimer = true;
+    [SerializeField] public Text countDownText;
 
+
+    public GameObject powerUpObject;
     private void Awake()
     {
         player_Rb = gameObject.GetComponent<Rigidbody2D>();
+        countDownText.gameObject.SetActive(false);
     }
 
 
@@ -54,30 +63,66 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("powerUp"))
+        {
+            PickUp();
+        }
+    }
+
+    private void PickUp()
+    {
+        Debug.Log("Power up picked up!!");
+        isPickUp = true;
+        finishTimer = false;
+        countDownText.gameObject.SetActive(true);
+        /*Instantiate(pickUpEffect, transform.position, transform.rotation);*/
+        Destroy(powerUpObject.gameObject);
+        currentTime = 5f;
+    }
+
     // Update is called once per frame
     void Update()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
-        //float vertical = Input.GetAxis("Jump");
-       
-        Player_Movement(horizontal);
-        Player_Run(horizontal);
-        //Player_Jump(vertical);
-
-        if (onGround == true)
+        if (currentTime == 0f)
         {
-            extraJump = 1;
+            finishTimer = true;
+            Debug.Log("timer true");
         }
 
         bool vertical = Input.GetKeyDown(KeyCode.UpArrow);
-        if ((vertical) && (extraJump==0) && (onGround==true))
+
+        if (currentTime == 0f || (finishTimer == true))
         {
-            Player_Jump();
+            
+            Player_Jump(vertical);
+            Debug.Log("vertical");
         }
-        else if ((vertical) && (extraJump > 0))
+
+
+        if ((isPickUp == true) && (currentTime > 0f) && finishTimer==false)
         {
-            PlayerDoubleJump();
+            currentTime -= 1 * Time.deltaTime;
+            countDownText.text = currentTime.ToString("0");
+            PlayerDoubleJump(vertical);
         }
+        else if(currentTime <= 0f)
+        {
+            currentTime = 0f;
+            countDownText.gameObject.SetActive(false);
+        }
+
+     /*   if (finishTimer == true)
+        {
+            currentTime = 5f;
+        }
+*/
+
+        Player_Movement(horizontal);
+        Player_Run(horizontal);
 
         /*if (Input.GetKeyDown(KeyCode.LeftControl))
         {
@@ -99,12 +144,13 @@ public class PlayerController : MonoBehaviour
             player_animator.SetBool("Crouch", false);
         }
     }*/
-    void Player_Jump()
+    void Player_Jump(bool vertical)
     {
         /*if((vertical) && (onGround == true))
         {*/
         //player_animator.SetBool("Jump", true);
-        player_Rb.AddForce(new Vector2(0.0f, 10f), ForceMode2D.Impulse);
+       /* player_Rb.AddForce(new Vector2(0.0f, 10f), ForceMode2D.Impulse);
+        Debug.Log("2323Jumppppp!!");*/
         //player_jump.Play();
         //extraJump = extraJump - 1;
         //onGround = false;
@@ -113,13 +159,33 @@ public class PlayerController : MonoBehaviour
           {
               //player_animator.SetBool("Jump", false);
           }*/
+
+        if ((vertical) && (extraJump == 0) && (onGround == true))
+        {
+            Debug.Log("jump");
+            player_Rb.AddForce(new Vector2(0f, 10f), ForceMode2D.Impulse);
+        }
     }
-    private void PlayerDoubleJump()
+    private void PlayerDoubleJump(bool vertical)
     {
-       // player_animator.SetBool("Jump", true);
+/*       // player_animator.SetBool("Jump", true);
         player_Rb.AddForce(new Vector2(0.0f, 10f), ForceMode2D.Impulse);
        // onGround = false;
         extraJump = extraJump - 1;
+        Debug.Log("Jumppppp!!");
+*/
+
+        if (onGround == true)
+        {
+            extraJump = 1;
+        }
+
+        if ((vertical) && (extraJump > 0))
+        {
+            player_Rb.AddForce(new Vector2(0f, 10f), ForceMode2D.Impulse);
+            extraJump = extraJump - 1;
+            Debug.Log("ExtraJump enabled");
+        }
     }
 
 
