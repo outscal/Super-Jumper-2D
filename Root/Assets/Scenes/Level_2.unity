@@ -897,6 +897,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5657956486131816167, guid: 5528b22a65ab4d24ea236aecd5674f60,
+        type: 3}
+      propertyPath: life_one
+      value: 
+      objectReference: {fileID: 1953260216}
+    - target: {fileID: 5657956486131816167, guid: 5528b22a65ab4d24ea236aecd5674f60,
+        type: 3}
+      propertyPath: life_two
+      value: 
+      objectReference: {fileID: 1080153676}
+    - target: {fileID: 5657956486131816167, guid: 5528b22a65ab4d24ea236aecd5674f60,
+        type: 3}
+      propertyPath: life_three
+      value: 
+      objectReference: {fileID: 2120327915}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5528b22a65ab4d24ea236aecd5674f60, type: 3}
 --- !u!1 &531130848
