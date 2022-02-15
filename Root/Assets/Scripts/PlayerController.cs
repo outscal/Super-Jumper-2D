@@ -25,6 +25,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     AudioSource player_keypicked;*/
 
+    //Dash feature
+    IEnumerator dashCoroutine;
+    bool isDashing, canDash = true;
+    float direction = 1;
+
     float runspeed = 8.0f;
     int player_health = 3;
     float jump_force = 1.0f;
@@ -117,11 +122,26 @@ public class PlayerController : MonoBehaviour
             isPickUp = false;
         }
 
-     /*   if (finishTimer == true)
+        //DASH
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash == true)
         {
-            currentTime = 5f;
+            if (dashCoroutine != null)
+            {
+                StopCoroutine(dashCoroutine);
+            }
+            dashCoroutine = Dash(0.1f, 2);
+            StartCoroutine(dashCoroutine);
         }
-*/
+        if (horizontal != 0)
+        {
+            direction = horizontal;
+        }
+
+        /*   if (finishTimer == true)
+           {
+               currentTime = 5f;
+           }
+   */
 
         Player_Movement(horizontal);
         Player_Run(horizontal);
@@ -241,5 +261,25 @@ public class PlayerController : MonoBehaviour
             //player_gameover.GameOver();
             this.enabled = false;
         }
+    }
+
+    private void FixedUpdate()
+    {
+        //Dash physics
+        if (isDashing)
+        {
+            player_Rb.AddForce(new Vector2(direction * 50, 0), ForceMode2D.Impulse);
+        }
+    }
+
+    IEnumerator Dash(float dashDuration, float dashCooldown)
+    {
+        isDashing = true;
+        canDash = false;
+        yield return new WaitForSeconds(dashDuration);
+        isDashing = false;
+        player_Rb.velocity = Vector2.zero;
+        yield return new WaitForSeconds(dashCooldown);
+        canDash = true;
     }
 }
