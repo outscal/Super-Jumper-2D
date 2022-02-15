@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
 
     float runspeed = 3.0f;
     int player_health = 3;
+    float jump_force = 5.0f;
    // [SerializeField]
     //float jumpspeed = 10.0f;
     //bool crouch;
@@ -113,6 +114,7 @@ public class PlayerController : MonoBehaviour
         {
             currentTime = 0f;
             countDownText.gameObject.SetActive(false);
+            isPickUp = false;
         }
 
      /*   if (finishTimer == true)
@@ -160,10 +162,10 @@ public class PlayerController : MonoBehaviour
               //player_animator.SetBool("Jump", false);
           }*/
 
-        if ((vertical) && (extraJump == 0) && (onGround == true))
+        if ((vertical) && (isPickUp != true) && (onGround == true))
         {
             Debug.Log("jump");
-            player_Rb.AddForce(new Vector2(0f, 10f), ForceMode2D.Impulse);
+            player_Rb.AddForce(new Vector2(0f, 10f) * jump_force, ForceMode2D.Impulse);
         }
     }
     private void PlayerDoubleJump(bool vertical)
@@ -182,8 +184,8 @@ public class PlayerController : MonoBehaviour
 
         if ((vertical) && (extraJump > 0))
         {
-            player_Rb.AddForce(new Vector2(0f, 10f), ForceMode2D.Impulse);
-            extraJump = extraJump - 1;
+            player_Rb.AddForce(new Vector2(0f, 10f) * jump_force, ForceMode2D.Impulse);
+            extraJump--;
             Debug.Log("ExtraJump enabled");
         }
     }

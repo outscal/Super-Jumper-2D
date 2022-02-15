@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 4125573609937672607}
   - component: {fileID: 4125573609937672608}
   - component: {fileID: 4125573609937672609}
-  - component: {fileID: 4125573609937672606}
+  - component: {fileID: 5657956486131816167}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -235,7 +235,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &4125573609937672606
+--- !u!114 &5657956486131816167
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -252,5 +252,6 @@ MonoBehaviour:
   life_one: {fileID: 0}
   life_two: {fileID: 0}
   life_three: {fileID: 0}
-  jumpspeed: 10
   onGround: 0
+  countDownText: {fileID: 0}
+  powerUpObject: {fileID: 0}
