@@ -268,7 +268,7 @@ public class PlayerController : MonoBehaviour
         //Dash physics
         if (isDashing)
         {
-            player_Rb.AddForce(new Vector2(direction * 50, 0), ForceMode2D.Impulse);
+            player_Rb.AddForce(new Vector2(direction * 20, 0), ForceMode2D.Impulse);
         }
     }
 
