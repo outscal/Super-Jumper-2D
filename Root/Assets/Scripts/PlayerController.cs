@@ -25,9 +25,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     AudioSource player_keypicked;*/
 
-    float runspeed = 3.0f;
+    float runspeed = 8.0f;
     int player_health = 3;
-    float jump_force = 5.0f;
+    float jump_force = 1.0f;
    // [SerializeField]
     //float jumpspeed = 10.0f;
     //bool crouch;
