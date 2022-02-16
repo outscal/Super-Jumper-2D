@@ -181,7 +181,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 2
+  m_Mass: 2.5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -249,12 +249,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player_animator: {fileID: 4125573609937672609}
   player_Rb: {fileID: 4125573609937672607}
-  life_one: {fileID: 2567985985812826329, guid: e0245ec7b1a61da499b6dca54a9dd258,
-    type: 3}
-  life_two: {fileID: 2567985985812826329, guid: e0245ec7b1a61da499b6dca54a9dd258,
-    type: 3}
-  life_three: {fileID: 2567985985812826329, guid: e0245ec7b1a61da499b6dca54a9dd258,
-    type: 3}
+  life_one: {fileID: 0}
+  life_two: {fileID: 0}
+  life_three: {fileID: 0}
   player_gameover: {fileID: 0}
   onGround: 0
   countDownText: {fileID: 0}
