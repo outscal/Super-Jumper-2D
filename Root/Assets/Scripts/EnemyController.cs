@@ -14,6 +14,7 @@ public class EnemyController : MonoBehaviour
     private bool movingRight = true;
 
     public Transform groundDetection;
+
     //public void OnCollisionEnter2D(Collision2D collision)
     //{
     //    if (collision.gameObject.GetComponent<PlayerController>() != null)
@@ -24,6 +25,15 @@ public class EnemyController : MonoBehaviour
     //    }
 
     //}
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            PlayerController player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+            player.KillPlayer();
+        }
+    }
 
     //public void OnCollisionExit2D(Collision2D collision)
     //{

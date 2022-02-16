@@ -14,8 +14,8 @@ public class PlayerController : MonoBehaviour
     ScoreController player_score;*/
     [SerializeField]
     GameObject life_one, life_two, life_three;
-    /*[SerializeField]
-    GameOverController player_gameover;*/
+    [SerializeField]
+    GameOverController player_gameover;
     /*[SerializeField]
     AudioSource player_jump;
     [SerializeField]
@@ -29,13 +29,13 @@ public class PlayerController : MonoBehaviour
     IEnumerator dashCoroutine;
     bool isDashing, canDash = true;
     float direction = 1;
-
-    float runspeed = 8.0f;
+    float horizontal;
+    float runspeed = 5.0f;
     int player_health = 3;
-    float jump_force = 1.0f;
+    float jump_force = 2.0f;
    // [SerializeField]
     //float jumpspeed = 10.0f;
-    //bool crouch;
+    bool crouch;
     [SerializeField]
     bool onGround;
     private int extraJump = 0;
@@ -89,23 +89,22 @@ public class PlayerController : MonoBehaviour
         currentTime = 5f;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        float horizontal = Input.GetAxisRaw("Horizontal");
+        horizontal = Input.GetAxisRaw("Horizontal");
         if (currentTime == 0f)
         {
             finishTimer = true;
-            Debug.Log("timer true");
+            //Debug.Log("timer true");
         }
 
-        bool vertical = Input.GetKeyDown(KeyCode.UpArrow);
+        bool vertical = Input.GetKeyDown(KeyCode.Space);
 
         if (currentTime == 0f || (finishTimer == true))
         {
             
             Player_Jump(vertical);
-            Debug.Log("vertical");
+            //Debug.Log("vertical");
         }
 
 
@@ -146,14 +145,14 @@ public class PlayerController : MonoBehaviour
         Player_Movement(horizontal);
         Player_Run(horizontal);
 
-        /*if (Input.GetKeyDown(KeyCode.LeftControl))
+        if (Input.GetKeyDown(KeyCode.C))
         {
             Player_Crouch();
-        }  */
+        } 
     }
 
 
-    /*void Player_Crouch()
+    void Player_Crouch()
     {
         if(crouch == false)
         {
@@ -165,7 +164,8 @@ public class PlayerController : MonoBehaviour
             crouch = false;
             player_animator.SetBool("Crouch", false);
         }
-    }*/
+    }
+
     void Player_Jump(bool vertical)
     {
         /*if((vertical) && (onGround == true))
@@ -184,8 +184,8 @@ public class PlayerController : MonoBehaviour
 
         if ((vertical) && (isPickUp != true) && (onGround == true))
         {
-            Debug.Log("jump");
-            player_Rb.AddForce(new Vector2(0f, 10f) * jump_force, ForceMode2D.Impulse);
+            //Debug.Log("jump");
+            player_Rb.AddForce(new Vector2(0f, 7f) * jump_force, ForceMode2D.Impulse);
         }
     }
     private void PlayerDoubleJump(bool vertical)
@@ -204,7 +204,7 @@ public class PlayerController : MonoBehaviour
 
         if ((vertical) && (extraJump > 0))
         {
-            player_Rb.AddForce(new Vector2(0f, 10f) * jump_force, ForceMode2D.Impulse);
+            player_Rb.AddForce(new Vector2(0f, 7f) * jump_force, ForceMode2D.Impulse);
             extraJump--;
             Debug.Log("ExtraJump enabled");
         }
@@ -242,7 +242,7 @@ public class PlayerController : MonoBehaviour
     }*/
 
     public void KillPlayer()
-    {
+    {   
         player_health--;
         if(player_health == 2)
         {
@@ -258,7 +258,7 @@ public class PlayerController : MonoBehaviour
         {
             player_animator.SetTrigger("Death");
             life_one.SetActive(false);
-            //player_gameover.GameOver();
+            player_gameover.GameOver();
             this.enabled = false;
         }
     }
