@@ -1,0 +1,137 @@
+[33mcommit 39b09898d20c28bfcb18a9e2daef54633f3b3b1f[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: Rupam Debnath <44625252+rupamdebnath@users.noreply.github.com>
+Date:   Wed Feb 23 16:58:32 2022 +0530
+
+    Copied project
+
+[33mcommit 1279c2be466315605cfae8dbd3b69a9cc592997c[m[33m ([m[1;31morigin/SolutionStatement[m[33m)[m
+Author: gansari231 <ansarigufraan0@gmail.com>
+Date:   Wed Feb 16 15:00:54 2022 +0530
+
+    update - lives, level complete
+    
+    Updated and added Lives system and complete working of all 3 levels
+
+[33mcommit acd478029dfdb382e64a84114f51efd234788717[m
+Author: gansari231 <ansarigufraan0@gmail.com>
+Date:   Wed Feb 16 13:57:16 2022 +0530
+
+    commit - powerUp, Level complete
+    
+    Updated powerUp to be used. Implemented Level complete scenes to be displayed
+
+[33mcommit 9057d14660023c6b9972cf7c033585ec58dfa2c1[m
+Author: Rupam Debnath <44625252+rupamdebnath@users.noreply.github.com>
+Date:   Tue Feb 15 21:34:28 2022 +0530
+
+    Added changes to all player prefabs, but Level 2 and level 3 issues still remain, need to make those components - powerups, lives, jump countdown objects as prefabs
+
+[33mcommit 4b44c06a12ad09351f4b9f41a2bc54f7cabe8e47[m
+Author: Rupam Debnath <44625252+rupamdebnath@users.noreply.github.com>
+Date:   Tue Feb 15 21:28:39 2022 +0530
+
+    Committing changes to be sure
+
+[33mcommit b479b23401559679e36a59682010c2a2e9f28f19[m
+Author: Rupam Debnath <44625252+rupamdebnath@users.noreply.github.com>
+Date:   Tue Feb 15 21:28:04 2022 +0530
+
+    Reduced the dash force a bit, tested, working correctly
+
+[33mcommit 91fb52ce921a37b7a7892697c6ef5e9138bb5090[m
+Author: Rupam Debnath <44625252+rupamdebnath@users.noreply.github.com>
+Date:   Tue Feb 15 21:23:52 2022 +0530
+
+    Added Dash mechanism, should work for all levels for player prefab by default, but at the moment, level 2 and 3 gives null reference errors as the script components are not prefabs
+
+[33mcommit 0a6e9318b3f26fe69f9a0daf1acb27cf496d7500[m
+Author: Rupam Debnath <44625252+rupamdebnath@users.noreply.github.com>
+Date:   Tue Feb 15 21:10:02 2022 +0530
+
+    Fixed enemy patrolling, added ground detection for raycasting
+
+[33mcommit 3f41103e0d4a5f621cd2864e915579ed51d44928[m
+Author: Rupam Debnath <44625252+rupamdebnath@users.noreply.github.com>
+Date:   Tue Feb 15 20:59:31 2022 +0530
+
+    Fixed camera movement to be in center of player
+
+[33mcommit f75976c519adce5b804a0e3bf522aa6fdc31b951[m
+Author: Rupam Debnath <44625252+rupamdebnath@users.noreply.github.com>
+Date:   Tue Feb 15 20:57:40 2022 +0530
+
+    Reduced player jump force, increased player speed, scenes added to build settings
+
+[33mcommit 84f9e6d38a4cfbb912d76cd6cc2d3eea8c01ba70[m
+Author: gansari231 <ansarigufraan0@gmail.com>
+Date:   Tue Feb 15 15:04:51 2022 +0530
+
+    commit - jump & powerup
+    
+    Fixed jump and double jump. Powerup for further use
+
+[33mcommit 7db99b563c5214e719926a6da917f1f0fab27ce6[m
+Author: arindambharati <arindambharati@gmail.com>
+Date:   Tue Feb 15 01:33:02 2022 +0530
+
+    powerups double jump added
+
+[33mcommit 8e8bb760793021825753cace83c29a7b009758b7[m
+Author: arindambharati <arindambharati@gmail.com>
+Date:   Mon Feb 14 01:16:50 2022 +0530
+
+    Added player single_double jump movement
+
+[33mcommit 95aa71f285182640c071d138dd25c117c467c6e4[m
+Author: arindambharati <arindambharati@gmail.com>
+Date:   Mon Feb 14 01:11:16 2022 +0530
+
+    Added Player Movement, Player Single_Double Jump
+
+[33mcommit c160916564da44e1ef9ebdcbc2e427dfda5af5b4[m
+Author: gansari231 <ansarigufraan0@gmail.com>
+Date:   Sun Feb 13 21:04:01 2022 +0530
+
+    Added player movements, levels and lives system to be implemented in next update
+
+[33mcommit 64d2ad8c818af366de7afcad9ea004027c27db8e[m
+Author: Rupam Debnath <44625252+rupamdebnath@users.noreply.github.com>
+Date:   Sat Feb 12 21:42:40 2022 +0530
+
+    Added Enemy Controller script for Patrolling enemies, tested, working as expected
+
+[33mcommit 26d2645e6a5bf6188328c89e3b3b383252c2ccad[m
+Author: Rupam Debnath <44625252+rupamdebnath@users.noreply.github.com>
+Date:   Sat Feb 12 20:46:20 2022 +0530
+
+    Layer and Order in Layer set for background
+
+[33mcommit cd13d296087a9700a864a39c3fda752fbebb176c[m
+Author: Rupam Debnath <44625252+rupamdebnath@users.noreply.github.com>
+Date:   Sat Feb 12 20:43:18 2022 +0530
+
+    Uncommitted changes commiting
+
+[33mcommit 07f58a572d2d6b331874b479d5dd82253ed10a25[m
+Author: Rupam Debnath <44625252+rupamdebnath@users.noreply.github.com>
+Date:   Sat Feb 12 20:40:37 2022 +0530
+
+    Added enemy sprite
+
+[33mcommit bcf78a99c4a08d7b65c74f4473e0039d54f0c46e[m
+Author: Rupam Debnath <44625252+rupamdebnath@users.noreply.github.com>
+Date:   Sat Feb 12 20:33:44 2022 +0530
+
+    Added background, platform and colour to scene
+
+[33mcommit 8b2e049383fcfcb56d6c8a039071a95d50463030[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Rupam Debnath <44625252+rupamdebnath@users.noreply.github.com>
+Date:   Sat Feb 12 19:54:59 2022 +0530
+
+    Adding unity files, first commit
+
+[33mcommit e584b42c8e70eeeafd9501ecd6900ac4e1449602[m
+Author: Rupam Debnath <44625252+rupamdebnath@users.noreply.github.com>
+Date:   Sat Feb 12 19:43:45 2022 +0530
+
+    Initial commit
